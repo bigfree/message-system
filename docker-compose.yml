@@ -1,0 +1,67 @@
+version: '3.8'
+
+services:
+  postgres:
+    container_name: ms_postgres
+    image: postgres:latest
+    volumes:
+      - ms_volume:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: messages
+    ports:
+      - "5432:5432"
+
+  backend_ms:
+    build:
+      context: ./backend
+      dockerfile: ./Dockerfile
+      target: development
+    volumes:
+      - ./backend:/usr/src/message-system
+    command: yarn start:dev
+#    command:
+#      - sh
+#      - -c
+#      - |
+#        yarn prisma:generate
+#        yarn start:dev
+    depends_on:
+      - postgres
+      - redis_ms
+    ports:
+      - '4000:4000'
+
+  frontend_ms:
+    build:
+      context: ./frontend
+      dockerfile: ./Dockerfile
+    stdin_open: true
+    volumes:
+      - ./frontend/:/frontend
+    ports:
+      - "3000:3000"
+    command: yarn dev
+
+  redis_ms:
+    image: redis:latest
+    volumes:
+      - redis_volume:/data
+    environment:
+      ALLOW_EMPTY_PASSWORD: yes
+      REDIS_HOST: 127.0.0.1
+    ports:
+      - '6379:6379'
+
+  mailhog:
+    image: mailhog/mailhog
+    container_name: ms_mailhog
+    restart: on-failure
+    ports:
+      - "1025:1025"
+      - "8025:8025"
+
+volumes:
+  ms_volume:
+  redis_volume:

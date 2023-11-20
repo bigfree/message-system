@@ -1,0 +1,227 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "linux-musl-openssl-3.0.x", "debian-openssl-1.1.x"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// https://github.com/unlight/prisma-nestjs-graphql
+generator nestgraphql {
+  provider               = "node node_modules/prisma-nestjs-graphql"
+  output                 = "../src/@generated"
+  purgeOutput            = true
+  reExport               = Directories
+  fields_Validator_from  = "class-validator"
+  fields_Validator_input = true
+}
+
+model User {
+  /// @HideField({ match: 'User*@(Create|Update)*Input' })
+  id                  String                 @id @default(cuid())
+  firstName           String                 @db.VarChar(100)
+  lastName            String                 @db.VarChar(100)
+  username            String?                @unique @db.VarChar(100)
+  /// @Validator.IsEmail()
+  email               String                 @unique @db.VarChar(100)
+  /// @HideField({ match: 'User*@(Where)*Input', output: true })
+  password            String
+  userContacts        UserContact[]
+  /// @HideField({ match: 'User*@(Create|Update)*Input' })
+  createdMessages     Message[]              @relation(name: "createdMessagesRelation")
+  /// @HideField({ match: 'User*@(Create|Update)*Input' })
+  createdMessagesType MessageType[]
+  /// @HideField({ match: 'User*@(Create|Update)*Input' })
+  createdUserGroup    UserGroup[]
+  /// @HideField({ match: 'User*@(Create|Update)*Input' })
+  assignMessages      AssignUsersOnMessage[]
+  /// @HideField({ match: 'User*@(Create|Update)*Input' })
+  queue               Queue[]
+  /// @HideField({ match: 'User*@(Create|Update)*Input' })
+  belongGroups        UserGroup[]            @relation("AssignUserOnUserGroup")
+  profile             UserProfile?
+  /// @HideField({ match: 'User*@(Create|Update)*Input' })
+  logs                Logs[]
+  /// @HideField({ match: 'User*@(Create|Update)*Input' })
+  createdAt           DateTime?              @default(now())
+}
+
+model UserProfile {
+  /// @HideField({ match: 'UserProfile*@(Create|Update)*Input' })
+  id        String    @id @default(cuid())
+  user      User      @relation(fields: [userId], references: [id])
+  userId    String    @unique
+  avatar    String?   @db.VarChar(255)
+  /// @HideField({ input: true, output: false })
+  acronym   String?   @db.VarChar(2)
+  /// @HideField({ match: 'UserProfile*@(Create|Update)*Input' })
+  createdAt DateTime? @default(now())
+}
+
+model UserContact {
+  /// @HideField({ match: 'UserContact*@(Create|Update)*Input' })
+  id          String            @id @default(cuid())
+  contactType UserContactType
+  value       String            @unique @db.VarChar(255)
+  status      UserContactStatus @default(ACTIVE)
+  user        User              @relation(fields: [userId], references: [id])
+  userId      String
+  /// @HideField({ match: 'UserContact*@(Create|Update)*Input' })
+  queue       Queue[]
+  /// @HideField({ match: 'UserContact*@(Create|Update)*Input' })
+  createdAt   DateTime?         @default(now())
+}
+
+model Message {
+  /// @HideField({ match: 'Message*@(Create|Update)*Input' })
+  id            String                     @id @default(cuid())
+  prefix        String?                    @db.VarChar(255)
+  title         String                     @db.VarChar(255)
+  body          String                     @db.Text
+  createdUser   User                       @relation(fields: [createdUserId], references: [id], name: "createdMessagesRelation")
+  createdUserId String
+  assignUsers   AssignUsersOnMessage[]
+  assignGroups  AssignUserGroupOnMessage[]
+  messageType   MessageType                @relation(fields: [messageTypeId], references: [id])
+  messageTypeId String
+  status        MessageStatus?             @default(CREATED)
+  /// @HideField({ match: 'Message*@(Create|Update)*Input' })
+  createdAt     DateTime?                  @default(now())
+}
+
+model MessageType {
+  /// @HideField({ match: 'MessageType*@(Create|Update)*Input' })
+  id            String    @id @default(cuid())
+  name          String    @unique @db.VarChar(100)
+  description   String?   @db.VarChar(400)
+  color         String?   @db.VarChar(20)
+  createdUser   User      @relation(fields: [createdUserId], references: [id])
+  createdUserId String
+  /// @HideField({ match: 'MessageType*@(Create|Update)*Input' })
+  message       Message[]
+  /// @HideField({ match: 'MessageType*@(Create|Update)*Input' })
+  createdAt     DateTime? @default(now())
+}
+
+model UserGroup {
+  /// @HideField({ match: 'UserGroup*@(Create|Update)*Input' })
+  id                String                     @id @default(cuid())
+  name              String                     @unique @db.VarChar(255)
+  userGroupSettings UserGroupSettings?
+  assignUsers       User[]                     @relation("AssignUserOnUserGroup")
+  userGroupContact  UserGroupContact[]
+  /// @HideField({ match: 'UserGroup*@(Create|Update)*Input' })
+  assignMessages    AssignUserGroupOnMessage[]
+  status            UserGroupStatus            @default(ACTIVE)
+  createdBy         User                       @relation(fields: [createdById], references: [id])
+  createdById       String
+  /// @HideField({ match: 'UserGroup*@(Create|Update)*Input' })
+  createdAt         DateTime?                  @default(now())
+}
+
+model UserGroupContact {
+  /// @HideField({ match: 'UserGroupContact*@(Create|Update)*Input' })
+  id          String            @id @default(cuid())
+  contactType UserContactType
+  value       String            @unique @db.VarChar(255)
+  status      UserContactStatus
+  userGroup   UserGroup         @relation(fields: [uerGroupId], references: [id])
+  uerGroupId  String
+  /// @HideField({ match: 'UserGroupContact*@(Create|Update)*Input' })
+  createdAt   DateTime?         @default(now())
+}
+
+model UserGroupSettings {
+  /// @HideField({ match: 'UserGroupSettings*@(Create|Update)*Input' })
+  id          String    @id @default(cuid())
+  userGroup   UserGroup @relation(fields: [userGroupId], references: [id])
+  userGroupId String    @unique
+  description String?   @db.VarChar(500)
+  color       String?   @db.VarChar(20)
+  avatar      String?   @db.VarChar(255)
+}
+
+model Queue {
+  /// @HideField({ match: 'Queue*@(Create|Update)*Input' })
+  id            String      @id @default(cuid())
+  user          User        @relation(fields: [userId], references: [id])
+  userId        String
+  userContact   UserContact @relation(fields: [userContactId], references: [id])
+  userContactId String
+  /// @HideField({ input: true, output: false })
+  jobId         Int?        @db.Integer()
+  status        String?     @db.VarChar(20)
+  /// @HideField({ input: true, output: false })
+  failedReason  String?     @db.VarChar(400)
+  /// @HideField({ input: true, output: false })
+  enqueueAt     DateTime?
+  /// @HideField({ input: true, output: false })
+  attempt       Int?
+  /// @HideField({ input: true, output: false })
+  finishedAt    DateTime?
+
+  @@index([userId, userContactId, jobId])
+}
+
+model Logs {
+  /// @HideField({ match: 'Logs*@(Create|Update)*Input' })
+  id        String    @id @default(cuid())
+  user      User      @relation(fields: [userId], references: [id])
+  userId    String
+  type      String    @db.VarChar(50)
+  data      Json?     @db.Json
+  /// @HideField({ match: 'Logs*@(Create|Update)*Input' })
+  createdAt DateTime? @default(now())
+}
+
+model AssignUsersOnMessage {
+  user      User      @relation(fields: [userId], references: [id])
+  userId    String
+  message   Message   @relation(fields: [messageId], references: [id])
+  messageId String
+  /// @HideField({ match: 'AssignUsersOnMessage*@(Create|Update)*Input' })
+  createdAt DateTime? @default(now())
+
+  @@id([userId, messageId])
+}
+
+model AssignUserGroupOnMessage {
+  userGroup   UserGroup @relation(fields: [userGroupId], references: [id])
+  userGroupId String
+  message     Message   @relation(fields: [messageId], references: [id])
+  messageId   String
+  /// @HideField({ match: 'AssignUserGroupOnMessage*@(Create|Update)*Input' })
+  createdAt   DateTime? @default(now())
+
+  @@id([userGroupId, messageId])
+}
+
+enum UserContactStatus {
+  ACTIVE
+  PENDING
+  UNACTIVE
+  DELETED
+}
+
+enum UserGroupStatus {
+  ACTIVE
+  PENDING
+  UNACTIVE
+  DELETED
+}
+
+enum UserContactType {
+  SMS
+  EMAIL
+}
+
+enum MessageStatus {
+  CREATED
+  PROCESS
+  DONE
+}

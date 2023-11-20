@@ -1,0 +1,2133 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type AssignUserGroupOnMessage {
+  createdAt: DateTime
+  message: Message!
+  messageId: String!
+  userGroup: UserGroup!
+  userGroupId: String!
+}
+
+input AssignUserGroupOnMessageCreateManyMessageInput {
+  userGroupId: String!
+}
+
+input AssignUserGroupOnMessageCreateManyMessageInputEnvelope {
+  data: [AssignUserGroupOnMessageCreateManyMessageInput!]!
+  skipDuplicates: Boolean
+}
+
+input AssignUserGroupOnMessageCreateNestedManyWithoutMessageInput {
+  connect: [AssignUserGroupOnMessageWhereUniqueInput!]
+  connectOrCreate: [AssignUserGroupOnMessageCreateOrConnectWithoutMessageInput!]
+  create: [AssignUserGroupOnMessageCreateWithoutMessageInput!]
+  createMany: AssignUserGroupOnMessageCreateManyMessageInputEnvelope
+}
+
+input AssignUserGroupOnMessageCreateOrConnectWithoutMessageInput {
+  create: AssignUserGroupOnMessageCreateWithoutMessageInput!
+  where: AssignUserGroupOnMessageWhereUniqueInput!
+}
+
+input AssignUserGroupOnMessageCreateWithoutMessageInput {
+  userGroup: UserGroupCreateNestedOneWithoutAssignMessagesInput!
+}
+
+input AssignUserGroupOnMessageListRelationFilter {
+  every: AssignUserGroupOnMessageWhereInput
+  none: AssignUserGroupOnMessageWhereInput
+  some: AssignUserGroupOnMessageWhereInput
+}
+
+input AssignUserGroupOnMessageOrderByRelationAggregateInput {
+  _count: SortOrder
+}
+
+input AssignUserGroupOnMessageUserGroupIdMessageIdCompoundUniqueInput {
+  messageId: String!
+  userGroupId: String!
+}
+
+input AssignUserGroupOnMessageWhereInput {
+  AND: [AssignUserGroupOnMessageWhereInput!]
+  NOT: [AssignUserGroupOnMessageWhereInput!]
+  OR: [AssignUserGroupOnMessageWhereInput!]
+  createdAt: DateTimeNullableFilter
+  message: MessageRelationFilter
+  messageId: StringFilter
+  userGroup: UserGroupRelationFilter
+  userGroupId: StringFilter
+}
+
+input AssignUserGroupOnMessageWhereUniqueInput {
+  AND: [AssignUserGroupOnMessageWhereInput!]
+  NOT: [AssignUserGroupOnMessageWhereInput!]
+  OR: [AssignUserGroupOnMessageWhereInput!]
+  createdAt: DateTimeNullableFilter
+  message: MessageRelationFilter
+  messageId: StringFilter
+  userGroup: UserGroupRelationFilter
+  userGroupId: StringFilter
+  userGroupId_messageId: AssignUserGroupOnMessageUserGroupIdMessageIdCompoundUniqueInput
+}
+
+type AssignUsersOnMessage {
+  createdAt: DateTime
+  message: Message!
+  messageId: String!
+  user: User!
+  userId: String!
+}
+
+type AssignUsersOnMessageCountAggregate {
+  _all: Int!
+  createdAt: Int!
+  messageId: Int!
+  userId: Int!
+}
+
+input AssignUsersOnMessageCreateManyMessageInput {
+  userId: String!
+}
+
+input AssignUsersOnMessageCreateManyMessageInputEnvelope {
+  data: [AssignUsersOnMessageCreateManyMessageInput!]!
+  skipDuplicates: Boolean
+}
+
+input AssignUsersOnMessageCreateNestedManyWithoutMessageInput {
+  connect: [AssignUsersOnMessageWhereUniqueInput!]
+  connectOrCreate: [AssignUsersOnMessageCreateOrConnectWithoutMessageInput!]
+  create: [AssignUsersOnMessageCreateWithoutMessageInput!]
+  createMany: AssignUsersOnMessageCreateManyMessageInputEnvelope
+}
+
+input AssignUsersOnMessageCreateOrConnectWithoutMessageInput {
+  create: AssignUsersOnMessageCreateWithoutMessageInput!
+  where: AssignUsersOnMessageWhereUniqueInput!
+}
+
+input AssignUsersOnMessageCreateWithoutMessageInput {
+  user: UserCreateNestedOneWithoutAssignMessagesInput!
+}
+
+input AssignUsersOnMessageListRelationFilter {
+  every: AssignUsersOnMessageWhereInput
+  none: AssignUsersOnMessageWhereInput
+  some: AssignUsersOnMessageWhereInput
+}
+
+type AssignUsersOnMessageMaxAggregate {
+  createdAt: DateTime
+  messageId: String
+  userId: String
+}
+
+type AssignUsersOnMessageMinAggregate {
+  createdAt: DateTime
+  messageId: String
+  userId: String
+}
+
+input AssignUsersOnMessageOrderByRelationAggregateInput {
+  _count: SortOrder
+}
+
+input AssignUsersOnMessageUserIdMessageIdCompoundUniqueInput {
+  messageId: String!
+  userId: String!
+}
+
+input AssignUsersOnMessageWhereInput {
+  AND: [AssignUsersOnMessageWhereInput!]
+  NOT: [AssignUsersOnMessageWhereInput!]
+  OR: [AssignUsersOnMessageWhereInput!]
+  createdAt: DateTimeNullableFilter
+  message: MessageRelationFilter
+  messageId: StringFilter
+  user: UserRelationFilter
+  userId: StringFilter
+}
+
+input AssignUsersOnMessageWhereUniqueInput {
+  AND: [AssignUsersOnMessageWhereInput!]
+  NOT: [AssignUsersOnMessageWhereInput!]
+  OR: [AssignUsersOnMessageWhereInput!]
+  createdAt: DateTimeNullableFilter
+  message: MessageRelationFilter
+  messageId: StringFilter
+  user: UserRelationFilter
+  userId: StringFilter
+  userId_messageId: AssignUsersOnMessageUserIdMessageIdCompoundUniqueInput
+}
+
+type Auth {
+  """Jwt token"""
+  token: String!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+input DateTimeNullableFilter {
+  equals: DateTime
+  gt: DateTime
+  gte: DateTime
+  in: [DateTime!]
+  lt: DateTime
+  lte: DateTime
+  not: NestedDateTimeNullableFilter
+  notIn: [DateTime!]
+}
+
+input EnumMessageStatusNullableFilter {
+  equals: MessageStatus
+  in: [MessageStatus!]
+  not: NestedEnumMessageStatusNullableFilter
+  notIn: [MessageStatus!]
+}
+
+input EnumUserContactStatusFieldUpdateOperationsInput {
+  set: UserContactStatus
+}
+
+input EnumUserContactStatusFilter {
+  equals: UserContactStatus
+  in: [UserContactStatus!]
+  not: NestedEnumUserContactStatusFilter
+  notIn: [UserContactStatus!]
+}
+
+input EnumUserContactTypeFieldUpdateOperationsInput {
+  set: UserContactType
+}
+
+input EnumUserContactTypeFilter {
+  equals: UserContactType
+  in: [UserContactType!]
+  not: NestedEnumUserContactTypeFilter
+  notIn: [UserContactType!]
+}
+
+input EnumUserGroupStatusFieldUpdateOperationsInput {
+  set: UserGroupStatus
+}
+
+input EnumUserGroupStatusFilter {
+  equals: UserGroupStatus
+  in: [UserGroupStatus!]
+  not: NestedEnumUserGroupStatusFilter
+  notIn: [UserGroupStatus!]
+}
+
+"""
+The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSON
+
+input JsonNullableFilter {
+  array_contains: JSON
+  array_ends_with: JSON
+  array_starts_with: JSON
+  equals: JSON
+  gt: JSON
+  gte: JSON
+  lt: JSON
+  lte: JSON
+  not: JSON
+  path: [String!]
+  string_contains: String
+  string_ends_with: String
+  string_starts_with: String
+}
+
+input LoginDto {
+  email: String!
+  password: String!
+}
+
+type Logs {
+  createdAt: DateTime
+  data: JSON
+  id: ID!
+  type: String!
+  user: User!
+  userId: String!
+}
+
+type LogsCountAggregate {
+  _all: Int!
+  createdAt: Int!
+  data: Int!
+  id: Int!
+  type: Int!
+  userId: Int!
+}
+
+input LogsCreateInput {
+  data: JSON
+  type: String!
+  user: UserCreateNestedOneWithoutLogsInput!
+}
+
+input LogsListRelationFilter {
+  every: LogsWhereInput
+  none: LogsWhereInput
+  some: LogsWhereInput
+}
+
+type LogsMaxAggregate {
+  createdAt: DateTime
+  id: String
+  type: String
+  userId: String
+}
+
+type LogsMinAggregate {
+  createdAt: DateTime
+  id: String
+  type: String
+  userId: String
+}
+
+input LogsOrderByRelationAggregateInput {
+  _count: SortOrder
+}
+
+input LogsOrderByWithRelationInput {
+  createdAt: SortOrderInput
+  data: SortOrderInput
+  id: SortOrder
+  type: SortOrder
+  user: UserOrderByWithRelationInput
+  userId: SortOrder
+}
+
+enum LogsScalarFieldEnum {
+  createdAt
+  data
+  id
+  type
+  userId
+}
+
+input LogsWhereInput {
+  AND: [LogsWhereInput!]
+  NOT: [LogsWhereInput!]
+  OR: [LogsWhereInput!]
+  createdAt: DateTimeNullableFilter
+  data: JsonNullableFilter
+  id: StringFilter
+  type: StringFilter
+  user: UserRelationFilter
+  userId: StringFilter
+}
+
+input LogsWhereUniqueInput {
+  AND: [LogsWhereInput!]
+  NOT: [LogsWhereInput!]
+  OR: [LogsWhereInput!]
+  createdAt: DateTimeNullableFilter
+  data: JsonNullableFilter
+  id: String
+  type: StringFilter
+  user: UserRelationFilter
+  userId: StringFilter
+}
+
+type Message {
+  _count: MessageCount!
+  assignGroups: [AssignUserGroupOnMessage!]
+  assignUsers: [AssignUsersOnMessage!]
+  body: String!
+  createdAt: DateTime
+  createdUser: User!
+  createdUserId: String!
+  id: ID!
+  messageType: MessageType!
+  messageTypeId: String!
+  prefix: String
+  status: MessageStatus
+  title: String!
+}
+
+type MessageCount {
+  assignGroups: Int!
+  assignUsers: Int!
+}
+
+type MessageCountAggregate {
+  _all: Int!
+  body: Int!
+  createdAt: Int!
+  createdUserId: Int!
+  id: Int!
+  messageTypeId: Int!
+  prefix: Int!
+  status: Int!
+  title: Int!
+}
+
+input MessageCreateInput {
+  assignGroups: AssignUserGroupOnMessageCreateNestedManyWithoutMessageInput
+  assignUsers: AssignUsersOnMessageCreateNestedManyWithoutMessageInput
+  body: String!
+  createdUser: UserCreateNestedOneWithoutCreatedMessagesInput!
+  messageType: MessageTypeCreateNestedOneWithoutMessageInput!
+  prefix: String
+  status: MessageStatus
+  title: String!
+}
+
+input MessageListRelationFilter {
+  every: MessageWhereInput
+  none: MessageWhereInput
+  some: MessageWhereInput
+}
+
+type MessageMaxAggregate {
+  body: String
+  createdAt: DateTime
+  createdUserId: String
+  id: String
+  messageTypeId: String
+  prefix: String
+  status: MessageStatus
+  title: String
+}
+
+type MessageMinAggregate {
+  body: String
+  createdAt: DateTime
+  createdUserId: String
+  id: String
+  messageTypeId: String
+  prefix: String
+  status: MessageStatus
+  title: String
+}
+
+input MessageOrderByRelationAggregateInput {
+  _count: SortOrder
+}
+
+input MessageOrderByWithRelationInput {
+  assignGroups: AssignUserGroupOnMessageOrderByRelationAggregateInput
+  assignUsers: AssignUsersOnMessageOrderByRelationAggregateInput
+  body: SortOrder
+  createdAt: SortOrderInput
+  createdUser: UserOrderByWithRelationInput
+  createdUserId: SortOrder
+  id: SortOrder
+  messageType: MessageTypeOrderByWithRelationInput
+  messageTypeId: SortOrder
+  prefix: SortOrderInput
+  status: SortOrderInput
+  title: SortOrder
+}
+
+input MessageRelationFilter {
+  is: MessageWhereInput
+  isNot: MessageWhereInput
+}
+
+enum MessageScalarFieldEnum {
+  body
+  createdAt
+  createdUserId
+  id
+  messageTypeId
+  prefix
+  status
+  title
+}
+
+enum MessageStatus {
+  CREATED
+  DONE
+  PROCESS
+}
+
+type MessageType {
+  _count: MessageTypeCount!
+  color: String
+  createdAt: DateTime
+  createdUser: User!
+  createdUserId: String!
+  description: String
+  id: ID!
+  message: [Message!]
+  name: String!
+}
+
+type MessageTypeCount {
+  message: Int!
+}
+
+type MessageTypeCountAggregate {
+  _all: Int!
+  color: Int!
+  createdAt: Int!
+  createdUserId: Int!
+  description: Int!
+  id: Int!
+  name: Int!
+}
+
+input MessageTypeCreateInput {
+  color: String
+  createdUser: UserCreateNestedOneWithoutCreatedMessagesTypeInput!
+  description: String
+  name: String!
+}
+
+input MessageTypeCreateNestedOneWithoutMessageInput {
+  connect: MessageTypeWhereUniqueInput
+  connectOrCreate: MessageTypeCreateOrConnectWithoutMessageInput
+  create: MessageTypeCreateWithoutMessageInput
+}
+
+input MessageTypeCreateOrConnectWithoutMessageInput {
+  create: MessageTypeCreateWithoutMessageInput!
+  where: MessageTypeWhereUniqueInput!
+}
+
+input MessageTypeCreateWithoutMessageInput {
+  color: String
+  createdUser: UserCreateNestedOneWithoutCreatedMessagesTypeInput!
+  description: String
+  name: String!
+}
+
+input MessageTypeListRelationFilter {
+  every: MessageTypeWhereInput
+  none: MessageTypeWhereInput
+  some: MessageTypeWhereInput
+}
+
+type MessageTypeMaxAggregate {
+  color: String
+  createdAt: DateTime
+  createdUserId: String
+  description: String
+  id: String
+  name: String
+}
+
+type MessageTypeMinAggregate {
+  color: String
+  createdAt: DateTime
+  createdUserId: String
+  description: String
+  id: String
+  name: String
+}
+
+input MessageTypeOrderByRelationAggregateInput {
+  _count: SortOrder
+}
+
+input MessageTypeOrderByWithRelationInput {
+  color: SortOrderInput
+  createdAt: SortOrderInput
+  createdUser: UserOrderByWithRelationInput
+  createdUserId: SortOrder
+  description: SortOrderInput
+  id: SortOrder
+  message: MessageOrderByRelationAggregateInput
+  name: SortOrder
+}
+
+input MessageTypeRelationFilter {
+  is: MessageTypeWhereInput
+  isNot: MessageTypeWhereInput
+}
+
+enum MessageTypeScalarFieldEnum {
+  color
+  createdAt
+  createdUserId
+  description
+  id
+  name
+}
+
+input MessageTypeUpdateInput {
+  color: NullableStringFieldUpdateOperationsInput
+  createdUser: UserUpdateOneRequiredWithoutCreatedMessagesTypeNestedInput
+  description: NullableStringFieldUpdateOperationsInput
+  name: StringFieldUpdateOperationsInput
+}
+
+input MessageTypeWhereInput {
+  AND: [MessageTypeWhereInput!]
+  NOT: [MessageTypeWhereInput!]
+  OR: [MessageTypeWhereInput!]
+  color: StringNullableFilter
+  createdAt: DateTimeNullableFilter
+  createdUser: UserRelationFilter
+  createdUserId: StringFilter
+  description: StringNullableFilter
+  id: StringFilter
+  message: MessageListRelationFilter
+  name: StringFilter
+}
+
+input MessageTypeWhereUniqueInput {
+  AND: [MessageTypeWhereInput!]
+  NOT: [MessageTypeWhereInput!]
+  OR: [MessageTypeWhereInput!]
+  color: StringNullableFilter
+  createdAt: DateTimeNullableFilter
+  createdUser: UserRelationFilter
+  createdUserId: StringFilter
+  description: StringNullableFilter
+  id: String
+  message: MessageListRelationFilter
+  name: String
+}
+
+input MessageWhereInput {
+  AND: [MessageWhereInput!]
+  NOT: [MessageWhereInput!]
+  OR: [MessageWhereInput!]
+  assignGroups: AssignUserGroupOnMessageListRelationFilter
+  assignUsers: AssignUsersOnMessageListRelationFilter
+  body: StringFilter
+  createdAt: DateTimeNullableFilter
+  createdUser: UserRelationFilter
+  createdUserId: StringFilter
+  id: StringFilter
+  messageType: MessageTypeRelationFilter
+  messageTypeId: StringFilter
+  prefix: StringNullableFilter
+  status: EnumMessageStatusNullableFilter
+  title: StringFilter
+}
+
+input MessageWhereUniqueInput {
+  AND: [MessageWhereInput!]
+  NOT: [MessageWhereInput!]
+  OR: [MessageWhereInput!]
+  assignGroups: AssignUserGroupOnMessageListRelationFilter
+  assignUsers: AssignUsersOnMessageListRelationFilter
+  body: StringFilter
+  createdAt: DateTimeNullableFilter
+  createdUser: UserRelationFilter
+  createdUserId: StringFilter
+  id: String
+  messageType: MessageTypeRelationFilter
+  messageTypeId: StringFilter
+  prefix: StringNullableFilter
+  status: EnumMessageStatusNullableFilter
+  title: StringFilter
+}
+
+type Mutation {
+  createLog(data: LogsCreateInput!): Logs!
+  createMessage(data: MessageCreateInput!): Message!
+  createMessageType(data: MessageTypeCreateInput!): MessageType!
+  createUser(data: UserCreateInput!): User!
+  createUserContact(data: UserContactCreateInput!): UserContact!
+  createUserGroup(data: UserGroupCreateInput!): UserGroup!
+  createUserProfile(data: UserProfileCreateInput!): UserProfile!
+  login(loginDto: LoginDto!): Auth!
+  signUp(data: UserCreateInput!): Auth!
+  updateMessageType(data: MessageTypeUpdateInput!, where: MessageTypeWhereUniqueInput!): MessageType!
+  updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User!
+  updateUserContact(data: UserContactUpdateInput!, where: UserContactWhereUniqueInput!): UserContact!
+  updateUserGroup(data: UserGroupUpdateInput!, where: UserGroupWhereUniqueInput!): UserGroup!
+  updateUserProfile(data: UserProfileUpdateInput!, where: UserProfileWhereUniqueInput!): UserProfile!
+}
+
+input NestedDateTimeNullableFilter {
+  equals: DateTime
+  gt: DateTime
+  gte: DateTime
+  in: [DateTime!]
+  lt: DateTime
+  lte: DateTime
+  not: NestedDateTimeNullableFilter
+  notIn: [DateTime!]
+}
+
+input NestedEnumMessageStatusNullableFilter {
+  equals: MessageStatus
+  in: [MessageStatus!]
+  not: NestedEnumMessageStatusNullableFilter
+  notIn: [MessageStatus!]
+}
+
+input NestedEnumUserContactStatusFilter {
+  equals: UserContactStatus
+  in: [UserContactStatus!]
+  not: NestedEnumUserContactStatusFilter
+  notIn: [UserContactStatus!]
+}
+
+input NestedEnumUserContactTypeFilter {
+  equals: UserContactType
+  in: [UserContactType!]
+  not: NestedEnumUserContactTypeFilter
+  notIn: [UserContactType!]
+}
+
+input NestedEnumUserGroupStatusFilter {
+  equals: UserGroupStatus
+  in: [UserGroupStatus!]
+  not: NestedEnumUserGroupStatusFilter
+  notIn: [UserGroupStatus!]
+}
+
+input NestedStringFilter {
+  contains: String
+  endsWith: String
+  equals: String
+  gt: String
+  gte: String
+  in: [String!]
+  lt: String
+  lte: String
+  not: NestedStringFilter
+  notIn: [String!]
+  startsWith: String
+}
+
+input NestedStringNullableFilter {
+  contains: String
+  endsWith: String
+  equals: String
+  gt: String
+  gte: String
+  in: [String!]
+  lt: String
+  lte: String
+  not: NestedStringNullableFilter
+  notIn: [String!]
+  startsWith: String
+}
+
+input NullableStringFieldUpdateOperationsInput {
+  set: String
+}
+
+enum NullsOrder {
+  first
+  last
+}
+
+type Query {
+  assignUsersOnMessage(where: AssignUsersOnMessageWhereUniqueInput!): AssignUsersOnMessage!
+  log(where: LogsWhereUniqueInput!): Logs!
+  logs(cursor: LogsWhereUniqueInput, distinct: [LogsScalarFieldEnum!], orderBy: [LogsOrderByWithRelationInput!], skip: Int, take: Int, where: LogsWhereInput): [Logs!]!
+  me: User!
+  message(where: MessageWhereUniqueInput!): Message!
+  messageType(where: MessageTypeWhereUniqueInput!): MessageType!
+  messageTypes(cursor: MessageTypeWhereUniqueInput, distinct: [MessageTypeScalarFieldEnum!], orderBy: [MessageTypeOrderByWithRelationInput!], skip: Int, take: Int, where: MessageTypeWhereInput): [MessageType!]!
+  messages(cursor: MessageWhereUniqueInput, distinct: [MessageScalarFieldEnum!], orderBy: [MessageOrderByWithRelationInput!], skip: Int, take: Int, where: MessageWhereInput): [Message!]!
+  queue(where: QueueWhereUniqueInput!): Queue!
+  queues(cursor: QueueWhereUniqueInput, distinct: [QueueScalarFieldEnum!], orderBy: [QueueOrderByWithRelationInput!], skip: Int, take: Int, where: QueueWhereInput): [Queue!]!
+  user(where: UserWhereUniqueInput!): User!
+  userContact(where: UserContactWhereUniqueInput!): UserContact!
+  userContacts(cursor: UserContactWhereUniqueInput, distinct: [UserContactScalarFieldEnum!], orderBy: [UserContactOrderByWithRelationInput!], skip: Int, take: Int, where: UserContactWhereInput): [UserContact!]!
+  userGroup(where: UserGroupWhereUniqueInput!): UserGroup!
+  userGroups(cursor: UserGroupWhereUniqueInput, distinct: [UserGroupScalarFieldEnum!], orderBy: [UserGroupOrderByWithRelationInput!], skip: Int, take: Int, where: UserGroupWhereInput): [UserGroup!]!
+  userProfile(where: UserProfileWhereUniqueInput!): UserProfile!
+  users(cursor: UserWhereUniqueInput, distinct: [UserScalarFieldEnum!], orderBy: [UserOrderByWithRelationInput!], skip: Int, take: Int, where: UserWhereInput): [User!]!
+}
+
+enum QueryMode {
+  default
+  insensitive
+}
+
+type Queue {
+  attempt: Int
+  enqueueAt: DateTime
+  failedReason: String
+  finishedAt: DateTime
+  id: ID!
+  jobId: Int
+  status: String
+  user: User!
+  userContact: UserContact!
+  userContactId: String!
+  userId: String!
+}
+
+type QueueAvgAggregate {
+  attempt: Float
+  jobId: Float
+}
+
+type QueueCountAggregate {
+  _all: Int!
+  attempt: Int!
+  enqueueAt: Int!
+  failedReason: Int!
+  finishedAt: Int!
+  id: Int!
+  jobId: Int!
+  status: Int!
+  userContactId: Int!
+  userId: Int!
+}
+
+input QueueListRelationFilter {
+  every: QueueWhereInput
+  none: QueueWhereInput
+  some: QueueWhereInput
+}
+
+type QueueMaxAggregate {
+  attempt: Int
+  enqueueAt: DateTime
+  failedReason: String
+  finishedAt: DateTime
+  id: String
+  jobId: Int
+  status: String
+  userContactId: String
+  userId: String
+}
+
+type QueueMinAggregate {
+  attempt: Int
+  enqueueAt: DateTime
+  failedReason: String
+  finishedAt: DateTime
+  id: String
+  jobId: Int
+  status: String
+  userContactId: String
+  userId: String
+}
+
+input QueueOrderByRelationAggregateInput {
+  _count: SortOrder
+}
+
+input QueueOrderByWithRelationInput {
+  id: SortOrder
+  status: SortOrderInput
+  user: UserOrderByWithRelationInput
+  userContact: UserContactOrderByWithRelationInput
+  userContactId: SortOrder
+  userId: SortOrder
+}
+
+enum QueueScalarFieldEnum {
+  attempt
+  enqueueAt
+  failedReason
+  finishedAt
+  id
+  jobId
+  status
+  userContactId
+  userId
+}
+
+type QueueSumAggregate {
+  attempt: Int
+  jobId: Int
+}
+
+input QueueWhereInput {
+  AND: [QueueWhereInput!]
+  NOT: [QueueWhereInput!]
+  OR: [QueueWhereInput!]
+  id: StringFilter
+  status: StringNullableFilter
+  user: UserRelationFilter
+  userContact: UserContactRelationFilter
+  userContactId: StringFilter
+  userId: StringFilter
+}
+
+input QueueWhereUniqueInput {
+  AND: [QueueWhereInput!]
+  NOT: [QueueWhereInput!]
+  OR: [QueueWhereInput!]
+  id: String
+  status: StringNullableFilter
+  user: UserRelationFilter
+  userContact: UserContactRelationFilter
+  userContactId: StringFilter
+  userId: StringFilter
+}
+
+enum SortOrder {
+  asc
+  desc
+}
+
+input SortOrderInput {
+  nulls: NullsOrder
+  sort: SortOrder!
+}
+
+input StringFieldUpdateOperationsInput {
+  set: String
+}
+
+input StringFilter {
+  contains: String
+  endsWith: String
+  equals: String
+  gt: String
+  gte: String
+  in: [String!]
+  lt: String
+  lte: String
+  mode: QueryMode
+  not: NestedStringFilter
+  notIn: [String!]
+  startsWith: String
+}
+
+input StringNullableFilter {
+  contains: String
+  endsWith: String
+  equals: String
+  gt: String
+  gte: String
+  in: [String!]
+  lt: String
+  lte: String
+  mode: QueryMode
+  not: NestedStringNullableFilter
+  notIn: [String!]
+  startsWith: String
+}
+
+type Subscription {
+  jobSendMessageStatus: Queue!
+  messageCreated: Message!
+  messageTypeCreated: MessageType!
+  messageTypeUpdated: MessageType!
+  userCreated: User!
+  userGroupCreated: UserGroup!
+  userGroupUpdated: UserGroup!
+  userUpdated: User!
+}
+
+type User {
+  _count: UserCount!
+  assignMessages: [AssignUsersOnMessage!]
+  belongGroups: [UserGroup!]
+  createdAt: DateTime
+  createdMessages: [Message!]
+  createdMessagesType: [MessageType!]
+  createdUserGroup: [UserGroup!]
+  email: String!
+  firstName: String!
+  id: ID!
+  lastName: String!
+  logs: [Logs!]
+  profile: UserProfile
+  queue: [Queue!]
+  userContacts: [UserContact!]
+  username: String
+}
+
+type UserContact {
+  _count: UserContactCount!
+  contactType: UserContactType!
+  createdAt: DateTime
+  id: ID!
+  queue: [Queue!]
+  status: UserContactStatus!
+  user: User!
+  userId: String!
+  value: String!
+}
+
+type UserContactCount {
+  queue: Int!
+}
+
+type UserContactCountAggregate {
+  _all: Int!
+  contactType: Int!
+  createdAt: Int!
+  id: Int!
+  status: Int!
+  userId: Int!
+  value: Int!
+}
+
+input UserContactCreateInput {
+  contactType: UserContactType!
+  status: UserContactStatus
+  user: UserCreateNestedOneWithoutUserContactsInput!
+  value: String!
+}
+
+input UserContactCreateManyUserInput {
+  contactType: UserContactType!
+  status: UserContactStatus
+  value: String!
+}
+
+input UserContactCreateManyUserInputEnvelope {
+  data: [UserContactCreateManyUserInput!]!
+  skipDuplicates: Boolean
+}
+
+input UserContactCreateNestedManyWithoutUserInput {
+  connect: [UserContactWhereUniqueInput!]
+  connectOrCreate: [UserContactCreateOrConnectWithoutUserInput!]
+  create: [UserContactCreateWithoutUserInput!]
+  createMany: UserContactCreateManyUserInputEnvelope
+}
+
+input UserContactCreateOrConnectWithoutUserInput {
+  create: UserContactCreateWithoutUserInput!
+  where: UserContactWhereUniqueInput!
+}
+
+input UserContactCreateWithoutUserInput {
+  contactType: UserContactType!
+  status: UserContactStatus
+  value: String!
+}
+
+input UserContactListRelationFilter {
+  every: UserContactWhereInput
+  none: UserContactWhereInput
+  some: UserContactWhereInput
+}
+
+type UserContactMaxAggregate {
+  contactType: UserContactType
+  createdAt: DateTime
+  id: String
+  status: UserContactStatus
+  userId: String
+  value: String
+}
+
+type UserContactMinAggregate {
+  contactType: UserContactType
+  createdAt: DateTime
+  id: String
+  status: UserContactStatus
+  userId: String
+  value: String
+}
+
+input UserContactOrderByRelationAggregateInput {
+  _count: SortOrder
+}
+
+input UserContactOrderByWithRelationInput {
+  contactType: SortOrder
+  createdAt: SortOrderInput
+  id: SortOrder
+  queue: QueueOrderByRelationAggregateInput
+  status: SortOrder
+  user: UserOrderByWithRelationInput
+  userId: SortOrder
+  value: SortOrder
+}
+
+input UserContactRelationFilter {
+  is: UserContactWhereInput
+  isNot: UserContactWhereInput
+}
+
+enum UserContactScalarFieldEnum {
+  contactType
+  createdAt
+  id
+  status
+  userId
+  value
+}
+
+input UserContactScalarWhereInput {
+  AND: [UserContactScalarWhereInput!]
+  NOT: [UserContactScalarWhereInput!]
+  OR: [UserContactScalarWhereInput!]
+  contactType: EnumUserContactTypeFilter
+  createdAt: DateTimeNullableFilter
+  id: StringFilter
+  status: EnumUserContactStatusFilter
+  userId: StringFilter
+  value: StringFilter
+}
+
+enum UserContactStatus {
+  ACTIVE
+  DELETED
+  PENDING
+  UNACTIVE
+}
+
+enum UserContactType {
+  EMAIL
+  SMS
+}
+
+input UserContactUpdateInput {
+  contactType: EnumUserContactTypeFieldUpdateOperationsInput
+  status: EnumUserContactStatusFieldUpdateOperationsInput
+  user: UserUpdateOneRequiredWithoutUserContactsNestedInput
+  value: StringFieldUpdateOperationsInput
+}
+
+input UserContactUpdateManyMutationInput {
+  contactType: EnumUserContactTypeFieldUpdateOperationsInput
+  status: EnumUserContactStatusFieldUpdateOperationsInput
+  value: StringFieldUpdateOperationsInput
+}
+
+input UserContactUpdateManyWithWhereWithoutUserInput {
+  data: UserContactUpdateManyMutationInput!
+  where: UserContactScalarWhereInput!
+}
+
+input UserContactUpdateManyWithoutUserNestedInput {
+  connect: [UserContactWhereUniqueInput!]
+  connectOrCreate: [UserContactCreateOrConnectWithoutUserInput!]
+  create: [UserContactCreateWithoutUserInput!]
+  createMany: UserContactCreateManyUserInputEnvelope
+  delete: [UserContactWhereUniqueInput!]
+  deleteMany: [UserContactScalarWhereInput!]
+  disconnect: [UserContactWhereUniqueInput!]
+  set: [UserContactWhereUniqueInput!]
+  update: [UserContactUpdateWithWhereUniqueWithoutUserInput!]
+  updateMany: [UserContactUpdateManyWithWhereWithoutUserInput!]
+  upsert: [UserContactUpsertWithWhereUniqueWithoutUserInput!]
+}
+
+input UserContactUpdateWithWhereUniqueWithoutUserInput {
+  data: UserContactUpdateWithoutUserInput!
+  where: UserContactWhereUniqueInput!
+}
+
+input UserContactUpdateWithoutUserInput {
+  contactType: EnumUserContactTypeFieldUpdateOperationsInput
+  status: EnumUserContactStatusFieldUpdateOperationsInput
+  value: StringFieldUpdateOperationsInput
+}
+
+input UserContactUpsertWithWhereUniqueWithoutUserInput {
+  create: UserContactCreateWithoutUserInput!
+  update: UserContactUpdateWithoutUserInput!
+  where: UserContactWhereUniqueInput!
+}
+
+input UserContactWhereInput {
+  AND: [UserContactWhereInput!]
+  NOT: [UserContactWhereInput!]
+  OR: [UserContactWhereInput!]
+  contactType: EnumUserContactTypeFilter
+  createdAt: DateTimeNullableFilter
+  id: StringFilter
+  queue: QueueListRelationFilter
+  status: EnumUserContactStatusFilter
+  user: UserRelationFilter
+  userId: StringFilter
+  value: StringFilter
+}
+
+input UserContactWhereUniqueInput {
+  AND: [UserContactWhereInput!]
+  NOT: [UserContactWhereInput!]
+  OR: [UserContactWhereInput!]
+  contactType: EnumUserContactTypeFilter
+  createdAt: DateTimeNullableFilter
+  id: String
+  queue: QueueListRelationFilter
+  status: EnumUserContactStatusFilter
+  user: UserRelationFilter
+  userId: StringFilter
+  value: String
+}
+
+type UserCount {
+  assignMessages: Int!
+  belongGroups: Int!
+  createdMessages: Int!
+  createdMessagesType: Int!
+  createdUserGroup: Int!
+  logs: Int!
+  queue: Int!
+  userContacts: Int!
+}
+
+type UserCountAggregate {
+  _all: Int!
+  createdAt: Int!
+  email: Int!
+  firstName: Int!
+  id: Int!
+  lastName: Int!
+  username: Int!
+}
+
+input UserCreateInput {
+  email: String!
+  firstName: String!
+  lastName: String!
+  password: String!
+  profile: UserProfileCreateNestedOneWithoutUserInput
+  userContacts: UserContactCreateNestedManyWithoutUserInput
+  username: String
+}
+
+input UserCreateNestedManyWithoutBelongGroupsInput {
+  connect: [UserWhereUniqueInput!]
+  connectOrCreate: [UserCreateOrConnectWithoutBelongGroupsInput!]
+  create: [UserCreateWithoutBelongGroupsInput!]
+}
+
+input UserCreateNestedOneWithoutAssignMessagesInput {
+  connect: UserWhereUniqueInput
+  connectOrCreate: UserCreateOrConnectWithoutAssignMessagesInput
+  create: UserCreateWithoutAssignMessagesInput
+}
+
+input UserCreateNestedOneWithoutCreatedMessagesInput {
+  connect: UserWhereUniqueInput
+  connectOrCreate: UserCreateOrConnectWithoutCreatedMessagesInput
+  create: UserCreateWithoutCreatedMessagesInput
+}
+
+input UserCreateNestedOneWithoutCreatedMessagesTypeInput {
+  connect: UserWhereUniqueInput
+  connectOrCreate: UserCreateOrConnectWithoutCreatedMessagesTypeInput
+  create: UserCreateWithoutCreatedMessagesTypeInput
+}
+
+input UserCreateNestedOneWithoutCreatedUserGroupInput {
+  connect: UserWhereUniqueInput
+  connectOrCreate: UserCreateOrConnectWithoutCreatedUserGroupInput
+  create: UserCreateWithoutCreatedUserGroupInput
+}
+
+input UserCreateNestedOneWithoutLogsInput {
+  connect: UserWhereUniqueInput
+  connectOrCreate: UserCreateOrConnectWithoutLogsInput
+  create: UserCreateWithoutLogsInput
+}
+
+input UserCreateNestedOneWithoutProfileInput {
+  connect: UserWhereUniqueInput
+  connectOrCreate: UserCreateOrConnectWithoutProfileInput
+  create: UserCreateWithoutProfileInput
+}
+
+input UserCreateNestedOneWithoutUserContactsInput {
+  connect: UserWhereUniqueInput
+  connectOrCreate: UserCreateOrConnectWithoutUserContactsInput
+  create: UserCreateWithoutUserContactsInput
+}
+
+input UserCreateOrConnectWithoutAssignMessagesInput {
+  create: UserCreateWithoutAssignMessagesInput!
+  where: UserWhereUniqueInput!
+}
+
+input UserCreateOrConnectWithoutBelongGroupsInput {
+  create: UserCreateWithoutBelongGroupsInput!
+  where: UserWhereUniqueInput!
+}
+
+input UserCreateOrConnectWithoutCreatedMessagesInput {
+  create: UserCreateWithoutCreatedMessagesInput!
+  where: UserWhereUniqueInput!
+}
+
+input UserCreateOrConnectWithoutCreatedMessagesTypeInput {
+  create: UserCreateWithoutCreatedMessagesTypeInput!
+  where: UserWhereUniqueInput!
+}
+
+input UserCreateOrConnectWithoutCreatedUserGroupInput {
+  create: UserCreateWithoutCreatedUserGroupInput!
+  where: UserWhereUniqueInput!
+}
+
+input UserCreateOrConnectWithoutLogsInput {
+  create: UserCreateWithoutLogsInput!
+  where: UserWhereUniqueInput!
+}
+
+input UserCreateOrConnectWithoutProfileInput {
+  create: UserCreateWithoutProfileInput!
+  where: UserWhereUniqueInput!
+}
+
+input UserCreateOrConnectWithoutUserContactsInput {
+  create: UserCreateWithoutUserContactsInput!
+  where: UserWhereUniqueInput!
+}
+
+input UserCreateWithoutAssignMessagesInput {
+  email: String!
+  firstName: String!
+  lastName: String!
+  password: String!
+  profile: UserProfileCreateNestedOneWithoutUserInput
+  userContacts: UserContactCreateNestedManyWithoutUserInput
+  username: String
+}
+
+input UserCreateWithoutBelongGroupsInput {
+  email: String!
+  firstName: String!
+  lastName: String!
+  password: String!
+  profile: UserProfileCreateNestedOneWithoutUserInput
+  userContacts: UserContactCreateNestedManyWithoutUserInput
+  username: String
+}
+
+input UserCreateWithoutCreatedMessagesInput {
+  email: String!
+  firstName: String!
+  lastName: String!
+  password: String!
+  profile: UserProfileCreateNestedOneWithoutUserInput
+  userContacts: UserContactCreateNestedManyWithoutUserInput
+  username: String
+}
+
+input UserCreateWithoutCreatedMessagesTypeInput {
+  email: String!
+  firstName: String!
+  lastName: String!
+  password: String!
+  profile: UserProfileCreateNestedOneWithoutUserInput
+  userContacts: UserContactCreateNestedManyWithoutUserInput
+  username: String
+}
+
+input UserCreateWithoutCreatedUserGroupInput {
+  email: String!
+  firstName: String!
+  lastName: String!
+  password: String!
+  profile: UserProfileCreateNestedOneWithoutUserInput
+  userContacts: UserContactCreateNestedManyWithoutUserInput
+  username: String
+}
+
+input UserCreateWithoutLogsInput {
+  email: String!
+  firstName: String!
+  lastName: String!
+  password: String!
+  profile: UserProfileCreateNestedOneWithoutUserInput
+  userContacts: UserContactCreateNestedManyWithoutUserInput
+  username: String
+}
+
+input UserCreateWithoutProfileInput {
+  email: String!
+  firstName: String!
+  lastName: String!
+  password: String!
+  userContacts: UserContactCreateNestedManyWithoutUserInput
+  username: String
+}
+
+input UserCreateWithoutUserContactsInput {
+  email: String!
+  firstName: String!
+  lastName: String!
+  password: String!
+  profile: UserProfileCreateNestedOneWithoutUserInput
+  username: String
+}
+
+type UserGroup {
+  _count: UserGroupCount!
+  assignMessages: [AssignUserGroupOnMessage!]
+  assignUsers: [User!]
+  createdAt: DateTime
+  createdBy: User!
+  createdById: String!
+  id: ID!
+  name: String!
+  status: UserGroupStatus!
+  userGroupContact: [UserGroupContact!]
+  userGroupSettings: UserGroupSettings
+}
+
+type UserGroupContact {
+  contactType: UserContactType!
+  createdAt: DateTime
+  id: ID!
+  status: UserContactStatus!
+  uerGroupId: String!
+  userGroup: UserGroup!
+  value: String!
+}
+
+input UserGroupContactCreateManyUserGroupInput {
+  contactType: UserContactType!
+  status: UserContactStatus!
+  value: String!
+}
+
+input UserGroupContactCreateManyUserGroupInputEnvelope {
+  data: [UserGroupContactCreateManyUserGroupInput!]!
+  skipDuplicates: Boolean
+}
+
+input UserGroupContactCreateNestedManyWithoutUserGroupInput {
+  connect: [UserGroupContactWhereUniqueInput!]
+  connectOrCreate: [UserGroupContactCreateOrConnectWithoutUserGroupInput!]
+  create: [UserGroupContactCreateWithoutUserGroupInput!]
+  createMany: UserGroupContactCreateManyUserGroupInputEnvelope
+}
+
+input UserGroupContactCreateOrConnectWithoutUserGroupInput {
+  create: UserGroupContactCreateWithoutUserGroupInput!
+  where: UserGroupContactWhereUniqueInput!
+}
+
+input UserGroupContactCreateWithoutUserGroupInput {
+  contactType: UserContactType!
+  status: UserContactStatus!
+  value: String!
+}
+
+input UserGroupContactListRelationFilter {
+  every: UserGroupContactWhereInput
+  none: UserGroupContactWhereInput
+  some: UserGroupContactWhereInput
+}
+
+input UserGroupContactOrderByRelationAggregateInput {
+  _count: SortOrder
+}
+
+input UserGroupContactScalarWhereInput {
+  AND: [UserGroupContactScalarWhereInput!]
+  NOT: [UserGroupContactScalarWhereInput!]
+  OR: [UserGroupContactScalarWhereInput!]
+  contactType: EnumUserContactTypeFilter
+  createdAt: DateTimeNullableFilter
+  id: StringFilter
+  status: EnumUserContactStatusFilter
+  uerGroupId: StringFilter
+  value: StringFilter
+}
+
+input UserGroupContactUpdateManyMutationInput {
+  contactType: EnumUserContactTypeFieldUpdateOperationsInput
+  status: EnumUserContactStatusFieldUpdateOperationsInput
+  value: StringFieldUpdateOperationsInput
+}
+
+input UserGroupContactUpdateManyWithWhereWithoutUserGroupInput {
+  data: UserGroupContactUpdateManyMutationInput!
+  where: UserGroupContactScalarWhereInput!
+}
+
+input UserGroupContactUpdateManyWithoutUserGroupNestedInput {
+  connect: [UserGroupContactWhereUniqueInput!]
+  connectOrCreate: [UserGroupContactCreateOrConnectWithoutUserGroupInput!]
+  create: [UserGroupContactCreateWithoutUserGroupInput!]
+  createMany: UserGroupContactCreateManyUserGroupInputEnvelope
+  delete: [UserGroupContactWhereUniqueInput!]
+  deleteMany: [UserGroupContactScalarWhereInput!]
+  disconnect: [UserGroupContactWhereUniqueInput!]
+  set: [UserGroupContactWhereUniqueInput!]
+  update: [UserGroupContactUpdateWithWhereUniqueWithoutUserGroupInput!]
+  updateMany: [UserGroupContactUpdateManyWithWhereWithoutUserGroupInput!]
+  upsert: [UserGroupContactUpsertWithWhereUniqueWithoutUserGroupInput!]
+}
+
+input UserGroupContactUpdateWithWhereUniqueWithoutUserGroupInput {
+  data: UserGroupContactUpdateWithoutUserGroupInput!
+  where: UserGroupContactWhereUniqueInput!
+}
+
+input UserGroupContactUpdateWithoutUserGroupInput {
+  contactType: EnumUserContactTypeFieldUpdateOperationsInput
+  status: EnumUserContactStatusFieldUpdateOperationsInput
+  value: StringFieldUpdateOperationsInput
+}
+
+input UserGroupContactUpsertWithWhereUniqueWithoutUserGroupInput {
+  create: UserGroupContactCreateWithoutUserGroupInput!
+  update: UserGroupContactUpdateWithoutUserGroupInput!
+  where: UserGroupContactWhereUniqueInput!
+}
+
+input UserGroupContactWhereInput {
+  AND: [UserGroupContactWhereInput!]
+  NOT: [UserGroupContactWhereInput!]
+  OR: [UserGroupContactWhereInput!]
+  contactType: EnumUserContactTypeFilter
+  createdAt: DateTimeNullableFilter
+  id: StringFilter
+  status: EnumUserContactStatusFilter
+  uerGroupId: StringFilter
+  userGroup: UserGroupRelationFilter
+  value: StringFilter
+}
+
+input UserGroupContactWhereUniqueInput {
+  AND: [UserGroupContactWhereInput!]
+  NOT: [UserGroupContactWhereInput!]
+  OR: [UserGroupContactWhereInput!]
+  contactType: EnumUserContactTypeFilter
+  createdAt: DateTimeNullableFilter
+  id: String
+  status: EnumUserContactStatusFilter
+  uerGroupId: StringFilter
+  userGroup: UserGroupRelationFilter
+  value: String
+}
+
+type UserGroupCount {
+  assignMessages: Int!
+  assignUsers: Int!
+  userGroupContact: Int!
+}
+
+type UserGroupCountAggregate {
+  _all: Int!
+  createdAt: Int!
+  createdById: Int!
+  id: Int!
+  name: Int!
+  status: Int!
+}
+
+input UserGroupCreateInput {
+  assignUsers: UserCreateNestedManyWithoutBelongGroupsInput
+  createdBy: UserCreateNestedOneWithoutCreatedUserGroupInput!
+  name: String!
+  status: UserGroupStatus
+  userGroupContact: UserGroupContactCreateNestedManyWithoutUserGroupInput
+  userGroupSettings: UserGroupSettingsCreateNestedOneWithoutUserGroupInput
+}
+
+input UserGroupCreateNestedOneWithoutAssignMessagesInput {
+  connect: UserGroupWhereUniqueInput
+  connectOrCreate: UserGroupCreateOrConnectWithoutAssignMessagesInput
+  create: UserGroupCreateWithoutAssignMessagesInput
+}
+
+input UserGroupCreateOrConnectWithoutAssignMessagesInput {
+  create: UserGroupCreateWithoutAssignMessagesInput!
+  where: UserGroupWhereUniqueInput!
+}
+
+input UserGroupCreateWithoutAssignMessagesInput {
+  assignUsers: UserCreateNestedManyWithoutBelongGroupsInput
+  createdBy: UserCreateNestedOneWithoutCreatedUserGroupInput!
+  name: String!
+  status: UserGroupStatus
+  userGroupContact: UserGroupContactCreateNestedManyWithoutUserGroupInput
+  userGroupSettings: UserGroupSettingsCreateNestedOneWithoutUserGroupInput
+}
+
+input UserGroupListRelationFilter {
+  every: UserGroupWhereInput
+  none: UserGroupWhereInput
+  some: UserGroupWhereInput
+}
+
+type UserGroupMaxAggregate {
+  createdAt: DateTime
+  createdById: String
+  id: String
+  name: String
+  status: UserGroupStatus
+}
+
+type UserGroupMinAggregate {
+  createdAt: DateTime
+  createdById: String
+  id: String
+  name: String
+  status: UserGroupStatus
+}
+
+input UserGroupOrderByRelationAggregateInput {
+  _count: SortOrder
+}
+
+input UserGroupOrderByWithRelationInput {
+  assignMessages: AssignUserGroupOnMessageOrderByRelationAggregateInput
+  assignUsers: UserOrderByRelationAggregateInput
+  createdAt: SortOrderInput
+  createdBy: UserOrderByWithRelationInput
+  createdById: SortOrder
+  id: SortOrder
+  name: SortOrder
+  status: SortOrder
+  userGroupContact: UserGroupContactOrderByRelationAggregateInput
+  userGroupSettings: UserGroupSettingsOrderByWithRelationInput
+}
+
+input UserGroupRelationFilter {
+  is: UserGroupWhereInput
+  isNot: UserGroupWhereInput
+}
+
+enum UserGroupScalarFieldEnum {
+  createdAt
+  createdById
+  id
+  name
+  status
+}
+
+type UserGroupSettings {
+  avatar: String
+  color: String
+  description: String
+  id: ID!
+  userGroup: UserGroup!
+  userGroupId: String!
+}
+
+input UserGroupSettingsCreateNestedOneWithoutUserGroupInput {
+  connect: UserGroupSettingsWhereUniqueInput
+  connectOrCreate: UserGroupSettingsCreateOrConnectWithoutUserGroupInput
+  create: UserGroupSettingsCreateWithoutUserGroupInput
+}
+
+input UserGroupSettingsCreateOrConnectWithoutUserGroupInput {
+  create: UserGroupSettingsCreateWithoutUserGroupInput!
+  where: UserGroupSettingsWhereUniqueInput!
+}
+
+input UserGroupSettingsCreateWithoutUserGroupInput {
+  avatar: String
+  color: String
+  description: String
+}
+
+input UserGroupSettingsNullableRelationFilter {
+  is: UserGroupSettingsWhereInput
+  isNot: UserGroupSettingsWhereInput
+}
+
+input UserGroupSettingsOrderByWithRelationInput {
+  avatar: SortOrderInput
+  color: SortOrderInput
+  description: SortOrderInput
+  id: SortOrder
+  userGroup: UserGroupOrderByWithRelationInput
+  userGroupId: SortOrder
+}
+
+input UserGroupSettingsUpdateOneWithoutUserGroupNestedInput {
+  connect: UserGroupSettingsWhereUniqueInput
+  connectOrCreate: UserGroupSettingsCreateOrConnectWithoutUserGroupInput
+  create: UserGroupSettingsCreateWithoutUserGroupInput
+  delete: UserGroupSettingsWhereInput
+  disconnect: UserGroupSettingsWhereInput
+  update: UserGroupSettingsUpdateToOneWithWhereWithoutUserGroupInput
+  upsert: UserGroupSettingsUpsertWithoutUserGroupInput
+}
+
+input UserGroupSettingsUpdateToOneWithWhereWithoutUserGroupInput {
+  data: UserGroupSettingsUpdateWithoutUserGroupInput!
+  where: UserGroupSettingsWhereInput
+}
+
+input UserGroupSettingsUpdateWithoutUserGroupInput {
+  avatar: NullableStringFieldUpdateOperationsInput
+  color: NullableStringFieldUpdateOperationsInput
+  description: NullableStringFieldUpdateOperationsInput
+}
+
+input UserGroupSettingsUpsertWithoutUserGroupInput {
+  create: UserGroupSettingsCreateWithoutUserGroupInput!
+  update: UserGroupSettingsUpdateWithoutUserGroupInput!
+  where: UserGroupSettingsWhereInput
+}
+
+input UserGroupSettingsWhereInput {
+  AND: [UserGroupSettingsWhereInput!]
+  NOT: [UserGroupSettingsWhereInput!]
+  OR: [UserGroupSettingsWhereInput!]
+  avatar: StringNullableFilter
+  color: StringNullableFilter
+  description: StringNullableFilter
+  id: StringFilter
+  userGroup: UserGroupRelationFilter
+  userGroupId: StringFilter
+}
+
+input UserGroupSettingsWhereUniqueInput {
+  AND: [UserGroupSettingsWhereInput!]
+  NOT: [UserGroupSettingsWhereInput!]
+  OR: [UserGroupSettingsWhereInput!]
+  avatar: StringNullableFilter
+  color: StringNullableFilter
+  description: StringNullableFilter
+  id: String
+  userGroup: UserGroupRelationFilter
+  userGroupId: String
+}
+
+enum UserGroupStatus {
+  ACTIVE
+  DELETED
+  PENDING
+  UNACTIVE
+}
+
+input UserGroupUpdateInput {
+  assignUsers: UserUpdateManyWithoutBelongGroupsNestedInput
+  createdBy: UserUpdateOneRequiredWithoutCreatedUserGroupNestedInput
+  name: StringFieldUpdateOperationsInput
+  status: EnumUserGroupStatusFieldUpdateOperationsInput
+  userGroupContact: UserGroupContactUpdateManyWithoutUserGroupNestedInput
+  userGroupSettings: UserGroupSettingsUpdateOneWithoutUserGroupNestedInput
+}
+
+input UserGroupWhereInput {
+  AND: [UserGroupWhereInput!]
+  NOT: [UserGroupWhereInput!]
+  OR: [UserGroupWhereInput!]
+  assignMessages: AssignUserGroupOnMessageListRelationFilter
+  assignUsers: UserListRelationFilter
+  createdAt: DateTimeNullableFilter
+  createdBy: UserRelationFilter
+  createdById: StringFilter
+  id: StringFilter
+  name: StringFilter
+  status: EnumUserGroupStatusFilter
+  userGroupContact: UserGroupContactListRelationFilter
+  userGroupSettings: UserGroupSettingsNullableRelationFilter
+}
+
+input UserGroupWhereUniqueInput {
+  AND: [UserGroupWhereInput!]
+  NOT: [UserGroupWhereInput!]
+  OR: [UserGroupWhereInput!]
+  assignMessages: AssignUserGroupOnMessageListRelationFilter
+  assignUsers: UserListRelationFilter
+  createdAt: DateTimeNullableFilter
+  createdBy: UserRelationFilter
+  createdById: StringFilter
+  id: String
+  name: String
+  status: EnumUserGroupStatusFilter
+  userGroupContact: UserGroupContactListRelationFilter
+  userGroupSettings: UserGroupSettingsNullableRelationFilter
+}
+
+input UserListRelationFilter {
+  every: UserWhereInput
+  none: UserWhereInput
+  some: UserWhereInput
+}
+
+type UserMaxAggregate {
+  createdAt: DateTime
+  email: String
+  firstName: String
+  id: String
+  lastName: String
+  username: String
+}
+
+type UserMinAggregate {
+  createdAt: DateTime
+  email: String
+  firstName: String
+  id: String
+  lastName: String
+  username: String
+}
+
+input UserOrderByRelationAggregateInput {
+  _count: SortOrder
+}
+
+input UserOrderByWithRelationInput {
+  assignMessages: AssignUsersOnMessageOrderByRelationAggregateInput
+  belongGroups: UserGroupOrderByRelationAggregateInput
+  createdAt: SortOrderInput
+  createdMessages: MessageOrderByRelationAggregateInput
+  createdMessagesType: MessageTypeOrderByRelationAggregateInput
+  createdUserGroup: UserGroupOrderByRelationAggregateInput
+  email: SortOrder
+  firstName: SortOrder
+  id: SortOrder
+  lastName: SortOrder
+  logs: LogsOrderByRelationAggregateInput
+  password: SortOrder
+  profile: UserProfileOrderByWithRelationInput
+  queue: QueueOrderByRelationAggregateInput
+  userContacts: UserContactOrderByRelationAggregateInput
+  username: SortOrderInput
+}
+
+type UserProfile {
+  acronym: String
+  avatar: String
+  createdAt: DateTime
+  id: ID!
+  user: User!
+  userId: String!
+}
+
+type UserProfileCountAggregate {
+  _all: Int!
+  acronym: Int!
+  avatar: Int!
+  createdAt: Int!
+  id: Int!
+  userId: Int!
+}
+
+input UserProfileCreateInput {
+  avatar: String
+  user: UserCreateNestedOneWithoutProfileInput!
+}
+
+input UserProfileCreateNestedOneWithoutUserInput {
+  connect: UserProfileWhereUniqueInput
+  connectOrCreate: UserProfileCreateOrConnectWithoutUserInput
+  create: UserProfileCreateWithoutUserInput
+}
+
+input UserProfileCreateOrConnectWithoutUserInput {
+  create: UserProfileCreateWithoutUserInput!
+  where: UserProfileWhereUniqueInput!
+}
+
+input UserProfileCreateWithoutUserInput {
+  avatar: String
+}
+
+type UserProfileMaxAggregate {
+  acronym: String
+  avatar: String
+  createdAt: DateTime
+  id: String
+  userId: String
+}
+
+type UserProfileMinAggregate {
+  acronym: String
+  avatar: String
+  createdAt: DateTime
+  id: String
+  userId: String
+}
+
+input UserProfileNullableRelationFilter {
+  is: UserProfileWhereInput
+  isNot: UserProfileWhereInput
+}
+
+input UserProfileOrderByWithRelationInput {
+  avatar: SortOrderInput
+  createdAt: SortOrderInput
+  id: SortOrder
+  user: UserOrderByWithRelationInput
+  userId: SortOrder
+}
+
+input UserProfileUpdateInput {
+  avatar: NullableStringFieldUpdateOperationsInput
+  user: UserUpdateOneRequiredWithoutProfileNestedInput
+}
+
+input UserProfileUpdateOneWithoutUserNestedInput {
+  connect: UserProfileWhereUniqueInput
+  connectOrCreate: UserProfileCreateOrConnectWithoutUserInput
+  create: UserProfileCreateWithoutUserInput
+  delete: UserProfileWhereInput
+  disconnect: UserProfileWhereInput
+  update: UserProfileUpdateToOneWithWhereWithoutUserInput
+  upsert: UserProfileUpsertWithoutUserInput
+}
+
+input UserProfileUpdateToOneWithWhereWithoutUserInput {
+  data: UserProfileUpdateWithoutUserInput!
+  where: UserProfileWhereInput
+}
+
+input UserProfileUpdateWithoutUserInput {
+  avatar: NullableStringFieldUpdateOperationsInput
+}
+
+input UserProfileUpsertWithoutUserInput {
+  create: UserProfileCreateWithoutUserInput!
+  update: UserProfileUpdateWithoutUserInput!
+  where: UserProfileWhereInput
+}
+
+input UserProfileWhereInput {
+  AND: [UserProfileWhereInput!]
+  NOT: [UserProfileWhereInput!]
+  OR: [UserProfileWhereInput!]
+  avatar: StringNullableFilter
+  createdAt: DateTimeNullableFilter
+  id: StringFilter
+  user: UserRelationFilter
+  userId: StringFilter
+}
+
+input UserProfileWhereUniqueInput {
+  AND: [UserProfileWhereInput!]
+  NOT: [UserProfileWhereInput!]
+  OR: [UserProfileWhereInput!]
+  avatar: StringNullableFilter
+  createdAt: DateTimeNullableFilter
+  id: String
+  user: UserRelationFilter
+  userId: String
+}
+
+input UserRelationFilter {
+  is: UserWhereInput
+  isNot: UserWhereInput
+}
+
+enum UserScalarFieldEnum {
+  createdAt
+  email
+  firstName
+  id
+  lastName
+  password
+  username
+}
+
+input UserScalarWhereInput {
+  AND: [UserScalarWhereInput!]
+  NOT: [UserScalarWhereInput!]
+  OR: [UserScalarWhereInput!]
+  createdAt: DateTimeNullableFilter
+  email: StringFilter
+  firstName: StringFilter
+  id: StringFilter
+  lastName: StringFilter
+  username: StringNullableFilter
+}
+
+input UserUpdateInput {
+  email: StringFieldUpdateOperationsInput
+  firstName: StringFieldUpdateOperationsInput
+  lastName: StringFieldUpdateOperationsInput
+  password: StringFieldUpdateOperationsInput
+  profile: UserProfileUpdateOneWithoutUserNestedInput
+  userContacts: UserContactUpdateManyWithoutUserNestedInput
+  username: NullableStringFieldUpdateOperationsInput
+}
+
+input UserUpdateManyMutationInput {
+  email: StringFieldUpdateOperationsInput
+  firstName: StringFieldUpdateOperationsInput
+  lastName: StringFieldUpdateOperationsInput
+  password: StringFieldUpdateOperationsInput
+  username: NullableStringFieldUpdateOperationsInput
+}
+
+input UserUpdateManyWithWhereWithoutBelongGroupsInput {
+  data: UserUpdateManyMutationInput!
+  where: UserScalarWhereInput!
+}
+
+input UserUpdateManyWithoutBelongGroupsNestedInput {
+  connect: [UserWhereUniqueInput!]
+  connectOrCreate: [UserCreateOrConnectWithoutBelongGroupsInput!]
+  create: [UserCreateWithoutBelongGroupsInput!]
+  delete: [UserWhereUniqueInput!]
+  deleteMany: [UserScalarWhereInput!]
+  disconnect: [UserWhereUniqueInput!]
+  set: [UserWhereUniqueInput!]
+  update: [UserUpdateWithWhereUniqueWithoutBelongGroupsInput!]
+  updateMany: [UserUpdateManyWithWhereWithoutBelongGroupsInput!]
+  upsert: [UserUpsertWithWhereUniqueWithoutBelongGroupsInput!]
+}
+
+input UserUpdateOneRequiredWithoutCreatedMessagesTypeNestedInput {
+  connect: UserWhereUniqueInput
+  connectOrCreate: UserCreateOrConnectWithoutCreatedMessagesTypeInput
+  create: UserCreateWithoutCreatedMessagesTypeInput
+  update: UserUpdateToOneWithWhereWithoutCreatedMessagesTypeInput
+  upsert: UserUpsertWithoutCreatedMessagesTypeInput
+}
+
+input UserUpdateOneRequiredWithoutCreatedUserGroupNestedInput {
+  connect: UserWhereUniqueInput
+  connectOrCreate: UserCreateOrConnectWithoutCreatedUserGroupInput
+  create: UserCreateWithoutCreatedUserGroupInput
+  update: UserUpdateToOneWithWhereWithoutCreatedUserGroupInput
+  upsert: UserUpsertWithoutCreatedUserGroupInput
+}
+
+input UserUpdateOneRequiredWithoutProfileNestedInput {
+  connect: UserWhereUniqueInput
+  connectOrCreate: UserCreateOrConnectWithoutProfileInput
+  create: UserCreateWithoutProfileInput
+  update: UserUpdateToOneWithWhereWithoutProfileInput
+  upsert: UserUpsertWithoutProfileInput
+}
+
+input UserUpdateOneRequiredWithoutUserContactsNestedInput {
+  connect: UserWhereUniqueInput
+  connectOrCreate: UserCreateOrConnectWithoutUserContactsInput
+  create: UserCreateWithoutUserContactsInput
+  update: UserUpdateToOneWithWhereWithoutUserContactsInput
+  upsert: UserUpsertWithoutUserContactsInput
+}
+
+input UserUpdateToOneWithWhereWithoutCreatedMessagesTypeInput {
+  data: UserUpdateWithoutCreatedMessagesTypeInput!
+  where: UserWhereInput
+}
+
+input UserUpdateToOneWithWhereWithoutCreatedUserGroupInput {
+  data: UserUpdateWithoutCreatedUserGroupInput!
+  where: UserWhereInput
+}
+
+input UserUpdateToOneWithWhereWithoutProfileInput {
+  data: UserUpdateWithoutProfileInput!
+  where: UserWhereInput
+}
+
+input UserUpdateToOneWithWhereWithoutUserContactsInput {
+  data: UserUpdateWithoutUserContactsInput!
+  where: UserWhereInput
+}
+
+input UserUpdateWithWhereUniqueWithoutBelongGroupsInput {
+  data: UserUpdateWithoutBelongGroupsInput!
+  where: UserWhereUniqueInput!
+}
+
+input UserUpdateWithoutBelongGroupsInput {
+  email: StringFieldUpdateOperationsInput
+  firstName: StringFieldUpdateOperationsInput
+  lastName: StringFieldUpdateOperationsInput
+  password: StringFieldUpdateOperationsInput
+  profile: UserProfileUpdateOneWithoutUserNestedInput
+  userContacts: UserContactUpdateManyWithoutUserNestedInput
+  username: NullableStringFieldUpdateOperationsInput
+}
+
+input UserUpdateWithoutCreatedMessagesTypeInput {
+  email: StringFieldUpdateOperationsInput
+  firstName: StringFieldUpdateOperationsInput
+  lastName: StringFieldUpdateOperationsInput
+  password: StringFieldUpdateOperationsInput
+  profile: UserProfileUpdateOneWithoutUserNestedInput
+  userContacts: UserContactUpdateManyWithoutUserNestedInput
+  username: NullableStringFieldUpdateOperationsInput
+}
+
+input UserUpdateWithoutCreatedUserGroupInput {
+  email: StringFieldUpdateOperationsInput
+  firstName: StringFieldUpdateOperationsInput
+  lastName: StringFieldUpdateOperationsInput
+  password: StringFieldUpdateOperationsInput
+  profile: UserProfileUpdateOneWithoutUserNestedInput
+  userContacts: UserContactUpdateManyWithoutUserNestedInput
+  username: NullableStringFieldUpdateOperationsInput
+}
+
+input UserUpdateWithoutProfileInput {
+  email: StringFieldUpdateOperationsInput
+  firstName: StringFieldUpdateOperationsInput
+  lastName: StringFieldUpdateOperationsInput
+  password: StringFieldUpdateOperationsInput
+  userContacts: UserContactUpdateManyWithoutUserNestedInput
+  username: NullableStringFieldUpdateOperationsInput
+}
+
+input UserUpdateWithoutUserContactsInput {
+  email: StringFieldUpdateOperationsInput
+  firstName: StringFieldUpdateOperationsInput
+  lastName: StringFieldUpdateOperationsInput
+  password: StringFieldUpdateOperationsInput
+  profile: UserProfileUpdateOneWithoutUserNestedInput
+  username: NullableStringFieldUpdateOperationsInput
+}
+
+input UserUpsertWithWhereUniqueWithoutBelongGroupsInput {
+  create: UserCreateWithoutBelongGroupsInput!
+  update: UserUpdateWithoutBelongGroupsInput!
+  where: UserWhereUniqueInput!
+}
+
+input UserUpsertWithoutCreatedMessagesTypeInput {
+  create: UserCreateWithoutCreatedMessagesTypeInput!
+  update: UserUpdateWithoutCreatedMessagesTypeInput!
+  where: UserWhereInput
+}
+
+input UserUpsertWithoutCreatedUserGroupInput {
+  create: UserCreateWithoutCreatedUserGroupInput!
+  update: UserUpdateWithoutCreatedUserGroupInput!
+  where: UserWhereInput
+}
+
+input UserUpsertWithoutProfileInput {
+  create: UserCreateWithoutProfileInput!
+  update: UserUpdateWithoutProfileInput!
+  where: UserWhereInput
+}
+
+input UserUpsertWithoutUserContactsInput {
+  create: UserCreateWithoutUserContactsInput!
+  update: UserUpdateWithoutUserContactsInput!
+  where: UserWhereInput
+}
+
+input UserWhereInput {
+  AND: [UserWhereInput!]
+  NOT: [UserWhereInput!]
+  OR: [UserWhereInput!]
+  assignMessages: AssignUsersOnMessageListRelationFilter
+  belongGroups: UserGroupListRelationFilter
+  createdAt: DateTimeNullableFilter
+  createdMessages: MessageListRelationFilter
+  createdMessagesType: MessageTypeListRelationFilter
+  createdUserGroup: UserGroupListRelationFilter
+  email: StringFilter
+  firstName: StringFilter
+  id: StringFilter
+  lastName: StringFilter
+  logs: LogsListRelationFilter
+  profile: UserProfileNullableRelationFilter
+  queue: QueueListRelationFilter
+  userContacts: UserContactListRelationFilter
+  username: StringNullableFilter
+}
+
+input UserWhereUniqueInput {
+  AND: [UserWhereInput!]
+  NOT: [UserWhereInput!]
+  OR: [UserWhereInput!]
+  assignMessages: AssignUsersOnMessageListRelationFilter
+  belongGroups: UserGroupListRelationFilter
+  createdAt: DateTimeNullableFilter
+  createdMessages: MessageListRelationFilter
+  createdMessagesType: MessageTypeListRelationFilter
+  createdUserGroup: UserGroupListRelationFilter
+  email: String
+  firstName: StringFilter
+  id: String
+  lastName: StringFilter
+  logs: LogsListRelationFilter
+  profile: UserProfileNullableRelationFilter
+  queue: QueueListRelationFilter
+  userContacts: UserContactListRelationFilter
+  username: String
+}
