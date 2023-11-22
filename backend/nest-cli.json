@@ -6,6 +6,15 @@
     "assets": [{
       "include": "**/*.hbs",
       "watchAssets": true
+    }, {
+      "include": "**/prisma-nestjs-graphql/*.d.ts",
+      "outDir": "dist/src"
+    }, {
+      "include": "**/prisma-nestjs-graphql/*.js",
+      "outDir": "dist/src"
+    },  {
+      "include": "**/prisma-nestjs-graphql/*.js.map",
+      "outDir": "dist/src"
     }],
     "deleteOutDir": true
   }

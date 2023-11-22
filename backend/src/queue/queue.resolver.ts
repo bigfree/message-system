@@ -1,10 +1,10 @@
 import { Args, Query, Resolver, Subscription } from '@nestjs/graphql';
 import { QueueService } from './queue.service';
-import { FindManyQueueArgs, FindUniqueQueueArgs, Queue } from '../@generated/queue';
 import { PubSub } from 'graphql-subscriptions';
 import { UseGuards } from '@nestjs/common';
 import { JwtAuthGuard } from '../auth/guard/jwt-auth.guard';
 import { PublishStateEnum } from '../enums/publish-state.enum';
+import { FindManyQueueArgs, FindUniqueQueueArgs, Queue } from '../@generated/prisma-nestjs-graphql';
 
 @Resolver(() => Queue)
 export class QueueResolver {

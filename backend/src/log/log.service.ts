@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
-import { CreateOneLogsArgs, FindManyLogsArgs, FindUniqueLogsArgs, Logs } from '../@generated/logs';
 import { PrismaService } from '../prisma/prisma.service';
 import { Prisma } from '@prisma/client';
 import { LogActionStateEnum } from '../enums/log-action-state.enum';
+import { CreateOneLogsArgs, FindManyLogsArgs, FindUniqueLogsArgs, Logs } from '../@generated/prisma-nestjs-graphql';
 
 @Injectable()
 export class LogService {
@@ -14,9 +14,7 @@ export class LogService {
      * @param createOneLogsArgs
      */
     async create(createOneLogsArgs: CreateOneLogsArgs): Promise<Logs> {
-        return this.prismaService.logs.create({
-            ...createOneLogsArgs,
-        });
+        return this.prismaService.logs.create(createOneLogsArgs);
     }
 
     async createInternal(userId: string, type: LogActionStateEnum, data: any): Promise<Logs> {

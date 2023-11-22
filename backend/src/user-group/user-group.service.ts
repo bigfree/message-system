@@ -6,7 +6,7 @@ import {
     FindUniqueUserGroupArgs,
     UpdateOneUserGroupArgs,
     UserGroup,
-} from '../@generated/user-group';
+} from '../@generated/prisma-nestjs-graphql';
 
 @Injectable()
 export class UserGroupService {
@@ -17,9 +17,9 @@ export class UserGroupService {
      * Create user group
      * @param createOneUserGroupArgs
      */
-    async create(createOneUserGroupArgs: CreateOneUserGroupArgs): Promise<UserGroup> {
+    async create({data}: CreateOneUserGroupArgs): Promise<UserGroup> {
         return this.prismaService.userGroup.create({
-            ...createOneUserGroupArgs,
+            data,
             include: {
                 _count: {
                     select: {

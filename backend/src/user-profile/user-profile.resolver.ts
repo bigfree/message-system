@@ -1,13 +1,13 @@
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { UserProfileService } from './user-profile.service';
+import { UseGuards } from '@nestjs/common';
+import { JwtAuthGuard } from '../auth/guard/jwt-auth.guard';
 import {
     CreateOneUserProfileArgs,
     FindUniqueUserProfileArgs,
     UpdateOneUserProfileArgs,
     UserProfile,
-} from '../@generated/user-profile';
-import { UseGuards } from '@nestjs/common';
-import { JwtAuthGuard } from '../auth/guard/jwt-auth.guard';
+} from '../@generated/prisma-nestjs-graphql';
 
 @Resolver(() => UserProfile)
 export class UserProfileResolver {

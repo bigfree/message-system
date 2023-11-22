@@ -6,6 +6,7 @@ EXPOSE 4000
 
 WORKDIR /usr/src/message-system
 COPY --chown=node:node package*.json ./
+COPY --chown=node:node yarn.lock ./
 
 RUN yarn install
 COPY --chown=node:node . .
@@ -21,6 +22,7 @@ FROM node:20.3.1-alpine As build
 WORKDIR /usr/src/app
 
 COPY --chown=node:node package*.json ./
+COPY --chown=node:node yarn.lock ./
 COPY --chown=node:node --from=development /usr/src/app/node_modules ./node_modules
 COPY --chown=node:node . .
 

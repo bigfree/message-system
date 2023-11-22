@@ -5,9 +5,9 @@ import { PubSub } from 'graphql-subscriptions';
 import { $Enums, Prisma } from '@prisma/client';
 import { MailerService } from '@nestjs-modules/mailer';
 import { Logger } from '@nestjs/common';
-import { Queue } from '../../@generated/queue';
 import { MessagesTemplateService } from '../../messages-template/messages-template.service';
 import { PublishStateEnum } from '../../enums/publish-state.enum';
+import { Queue } from '../../@generated/prisma-nestjs-graphql';
 
 export type JobDataType = {
     messageId: string;

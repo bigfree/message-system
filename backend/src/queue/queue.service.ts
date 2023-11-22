@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
-import { FindManyQueueArgs, FindUniqueQueueArgs, Queue } from '../@generated/queue';
+import { FindManyQueueArgs, FindUniqueQueueArgs, Queue } from '../@generated/prisma-nestjs-graphql';
 
 @Injectable()
 export class QueueService {

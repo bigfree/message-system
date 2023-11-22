@@ -1,11 +1,11 @@
 import { Injectable } from '@nestjs/common';
+import { PrismaService } from '../prisma/prisma.service';
 import {
     CreateOneUserProfileArgs,
     FindUniqueUserProfileArgs,
     UpdateOneUserProfileArgs,
     UserProfile,
-} from '../@generated/user-profile';
-import { PrismaService } from '../prisma/prisma.service';
+} from '../@generated/prisma-nestjs-graphql';
 
 @Injectable()
 export class UserProfileService {
@@ -14,9 +14,9 @@ export class UserProfileService {
     ) {
     }
 
-    async create(createOneUserProfileArgs: CreateOneUserProfileArgs): Promise<UserProfile> {
+    async create({data}: CreateOneUserProfileArgs): Promise<UserProfile> {
         return this.prismaService.userProfile.create({
-            ...createOneUserProfileArgs,
+            data,
         });
     }
 

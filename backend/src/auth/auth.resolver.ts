@@ -4,8 +4,8 @@ import { Auth } from './entities/auth.entity';
 import { LoginDto } from './dto/login.dto';
 import { User } from '@prisma/client';
 import { UnauthorizedException } from '@nestjs/common';
-import { CreateOneUserArgs } from '../@generated/user';
 import { UserService } from '../user/user.service';
+import { CreateOneUserArgs } from '../@generated/prisma-nestjs-graphql';
 
 @Resolver(() => Auth)
 export class AuthResolver {

@@ -1,16 +1,15 @@
 import { Args, Mutation, Query, Resolver, Subscription } from '@nestjs/graphql';
 import { MessageTypeService } from './message-type.service';
-import {
-    CreateOneMessageTypeArgs,
-    FindManyMessageTypeArgs,
-    FindUniqueMessageTypeArgs,
-    MessageType,
-    UpdateOneMessageTypeArgs,
-} from '../@generated/message-type';
 import { UseGuards } from '@nestjs/common';
 import { JwtAuthGuard } from '../auth/guard/jwt-auth.guard';
 import { PubSub } from 'graphql-subscriptions';
 import { PublishStateEnum } from '../enums/publish-state.enum';
+import {
+    CreateOneMessageTypeArgs,
+    FindManyMessageTypeArgs,
+    FindUniqueMessageTypeArgs,
+    MessageType, UpdateOneMessageTypeArgs,
+} from '../@generated/prisma-nestjs-graphql';
 
 @Resolver(() => MessageType)
 export class MessageTypeResolver {

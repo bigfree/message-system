@@ -1,6 +1,6 @@
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { LogService } from './log.service';
-import { CreateOneLogsArgs, FindManyLogsArgs, FindUniqueLogsArgs, Logs } from '../@generated/logs';
+import { CreateOneLogsArgs, FindManyLogsArgs, FindUniqueLogsArgs, Logs } from '../@generated/prisma-nestjs-graphql';
 
 @Resolver(() => Logs)
 export class LogResolver {

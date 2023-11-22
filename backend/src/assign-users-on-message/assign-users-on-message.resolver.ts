@@ -1,6 +1,6 @@
 import { Args, Query, Resolver } from '@nestjs/graphql';
 import { AssignUsersOnMessageService } from './assign-users-on-message.service';
-import { AssignUsersOnMessage, FindUniqueAssignUsersOnMessageArgs } from '../@generated/assign-users-on-message';
+import { AssignUsersOnMessage, FindUniqueAssignUsersOnMessageArgs } from '../@generated/prisma-nestjs-graphql';
 
 @Resolver(() => AssignUsersOnMessage)
 export class AssignUsersOnMessageResolver {

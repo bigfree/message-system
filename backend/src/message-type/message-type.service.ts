@@ -1,12 +1,12 @@
 import { Injectable } from '@nestjs/common';
+import { PrismaService } from '../prisma/prisma.service';
 import {
     CreateOneMessageTypeArgs,
     FindManyMessageTypeArgs,
     FindUniqueMessageTypeArgs,
     MessageType,
-    UpdateOneMessageTypeArgs,
-} from '../@generated/message-type';
-import { PrismaService } from '../prisma/prisma.service';
+    MessageTypeCreateInput, UpdateOneMessageTypeArgs,
+} from '../@generated/prisma-nestjs-graphql';
 
 @Injectable()
 export class MessageTypeService {
@@ -20,7 +20,9 @@ export class MessageTypeService {
      * @param createOneMessageTypeArgs
      */
     async create(createOneMessageTypeArgs: CreateOneMessageTypeArgs): Promise<MessageType> {
-        return this.prismaService.messageType.create(createOneMessageTypeArgs);
+        return this.prismaService.messageType.create({
+            data: createOneMessageTypeArgs.data as MessageTypeCreateInput
+        });
     }
 
     /**

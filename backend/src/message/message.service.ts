@@ -1,9 +1,15 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
-import { CreateOneMessageArgs, FindManyMessageArgs, FindUniqueMessageArgs, Message } from '../@generated/message';
 import { InjectQueue } from '@nestjs/bull';
 import { Queue } from 'bull';
 import { Prisma, UserContact } from '@prisma/client';
+import {
+    CreateOneMessageArgs,
+    FindManyMessageArgs,
+    FindUniqueMessageArgs,
+    Message,
+    MessageCreateInput,
+} from '../@generated/prisma-nestjs-graphql';
 
 @Injectable()
 export class MessageService {
@@ -48,7 +54,7 @@ export class MessageService {
                 },
             },
         }> = await this.prismaService.message.create({
-            ...createOneMessageArgs,
+            data: createOneMessageArgs.data as MessageCreateInput,
             include: { // TODO: fix errors
                 createdUser: true,
                 messageType: true,

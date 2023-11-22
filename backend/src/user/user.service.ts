@@ -1,13 +1,13 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
+import { hash } from 'bcryptjs';
 import {
     CreateOneUserArgs,
     FindManyUserArgs,
     FindUniqueUserArgs,
     UpdateOneUserArgs,
     User,
-} from '../@generated/user';
-import { hash } from 'bcryptjs';
+} from '../@generated/prisma-nestjs-graphql';
 
 @Injectable()
 export class UserService {
@@ -105,9 +105,10 @@ export class UserService {
      * Update one user
      * @param updateOneUserArgs
      */
-    async updateOne(updateOneUserArgs: UpdateOneUserArgs): Promise<User> {
+    async updateOne({data, where}: UpdateOneUserArgs): Promise<User> {
         return this.prismaService.user.update({
-            ...updateOneUserArgs,
+            data,
+            where,
             include: {
                 _count: {
                     select: {

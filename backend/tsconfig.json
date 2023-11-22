@@ -18,6 +18,6 @@
     "strictBindCallApply": true,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
-    "esModuleInterop": true // for mjml
+    "esModuleInterop": true, // for mjml
   }
 }

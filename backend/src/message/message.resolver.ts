@@ -1,6 +1,5 @@
 import { Args, Mutation, Query, Resolver, Subscription } from '@nestjs/graphql';
 import { MessageService } from './message.service';
-import { CreateOneMessageArgs, FindManyMessageArgs, FindUniqueMessageArgs, Message } from '../@generated/message';
 import { PubSub } from 'graphql-subscriptions';
 import { UseGuards } from '@nestjs/common';
 import { JwtAuthGuard } from '../auth/guard/jwt-auth.guard';
@@ -11,6 +10,7 @@ import { IpUser } from '../decorators/ip-user.decorator';
 import { LogActionStateEnum } from '../enums/log-action-state.enum';
 import { PublishStateEnum } from '../enums/publish-state.enum';
 import { toLong } from 'ip';
+import { CreateOneMessageArgs, FindManyMessageArgs, FindUniqueMessageArgs, Message } from '../@generated/prisma-nestjs-graphql';
 
 @Resolver(() => Message)
 export class MessageResolver {

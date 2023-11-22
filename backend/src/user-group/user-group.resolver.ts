@@ -1,16 +1,16 @@
 import { Args, Mutation, Query, Resolver, Subscription } from '@nestjs/graphql';
 import { UserGroupService } from './user-group.service';
+import { PubSub } from 'graphql-subscriptions';
+import { UseGuards } from '@nestjs/common';
+import { JwtAuthGuard } from '../auth/guard/jwt-auth.guard';
+import { PublishStateEnum } from '../enums/publish-state.enum';
 import {
     CreateOneUserGroupArgs,
     FindManyUserGroupArgs,
     FindUniqueUserGroupArgs,
     UpdateOneUserGroupArgs,
     UserGroup,
-} from '../@generated/user-group';
-import { PubSub } from 'graphql-subscriptions';
-import { UseGuards } from '@nestjs/common';
-import { JwtAuthGuard } from '../auth/guard/jwt-auth.guard';
-import { PublishStateEnum } from '../enums/publish-state.enum';
+} from '../@generated/prisma-nestjs-graphql';
 
 @Resolver(() => UserGroup)
 export class UserGroupResolver {

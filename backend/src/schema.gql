@@ -10,6 +10,13 @@ type AssignUserGroupOnMessage {
   userGroupId: String!
 }
 
+type AssignUserGroupOnMessageCountAggregate {
+  _all: Int!
+  createdAt: Int!
+  messageId: Int!
+  userGroupId: Int!
+}
+
 input AssignUserGroupOnMessageCreateManyMessageInput {
   userGroupId: String!
 }
@@ -39,6 +46,18 @@ input AssignUserGroupOnMessageListRelationFilter {
   every: AssignUserGroupOnMessageWhereInput
   none: AssignUserGroupOnMessageWhereInput
   some: AssignUserGroupOnMessageWhereInput
+}
+
+type AssignUserGroupOnMessageMaxAggregate {
+  createdAt: DateTime
+  messageId: String
+  userGroupId: String
+}
+
+type AssignUserGroupOnMessageMinAggregate {
+  createdAt: DateTime
+  messageId: String
+  userGroupId: String
 }
 
 input AssignUserGroupOnMessageOrderByRelationAggregateInput {
@@ -253,7 +272,7 @@ input LoginDto {
 type Logs {
   createdAt: DateTime
   data: JSON
-  id: ID!
+  id: String!
   type: String!
   user: User!
   userId: String!
@@ -347,7 +366,7 @@ type Message {
   createdAt: DateTime
   createdUser: User!
   createdUserId: String!
-  id: ID!
+  id: String!
   messageType: MessageType!
   messageTypeId: String!
   prefix: String
@@ -459,7 +478,7 @@ type MessageType {
   createdUser: User!
   createdUserId: String!
   description: String
-  id: ID!
+  id: String!
   message: [Message!]
   name: String!
 }
@@ -750,7 +769,7 @@ type Queue {
   enqueueAt: DateTime
   failedReason: String
   finishedAt: DateTime
-  id: ID!
+  id: String!
   jobId: Int
   status: String
   user: User!
@@ -926,7 +945,7 @@ type User {
   createdUserGroup: [UserGroup!]
   email: String!
   firstName: String!
-  id: ID!
+  id: String!
   lastName: String!
   logs: [Logs!]
   profile: UserProfile
@@ -939,7 +958,7 @@ type UserContact {
   _count: UserContactCount!
   contactType: UserContactType!
   createdAt: DateTime
-  id: ID!
+  id: String!
   queue: [Queue!]
   status: UserContactStatus!
   user: User!
@@ -1355,7 +1374,7 @@ type UserGroup {
   createdAt: DateTime
   createdBy: User!
   createdById: String!
-  id: ID!
+  id: String!
   name: String!
   status: UserGroupStatus!
   userGroupContact: [UserGroupContact!]
@@ -1365,11 +1384,21 @@ type UserGroup {
 type UserGroupContact {
   contactType: UserContactType!
   createdAt: DateTime
-  id: ID!
+  id: String!
   status: UserContactStatus!
   uerGroupId: String!
   userGroup: UserGroup!
   value: String!
+}
+
+type UserGroupContactCountAggregate {
+  _all: Int!
+  contactType: Int!
+  createdAt: Int!
+  id: Int!
+  status: Int!
+  uerGroupId: Int!
+  value: Int!
 }
 
 input UserGroupContactCreateManyUserGroupInput {
@@ -1405,6 +1434,24 @@ input UserGroupContactListRelationFilter {
   every: UserGroupContactWhereInput
   none: UserGroupContactWhereInput
   some: UserGroupContactWhereInput
+}
+
+type UserGroupContactMaxAggregate {
+  contactType: UserContactType
+  createdAt: DateTime
+  id: String
+  status: UserContactStatus
+  uerGroupId: String
+  value: String
+}
+
+type UserGroupContactMinAggregate {
+  contactType: UserContactType
+  createdAt: DateTime
+  id: String
+  status: UserContactStatus
+  uerGroupId: String
+  value: String
 }
 
 input UserGroupContactOrderByRelationAggregateInput {
@@ -1591,9 +1638,18 @@ type UserGroupSettings {
   avatar: String
   color: String
   description: String
-  id: ID!
+  id: String!
   userGroup: UserGroup!
   userGroupId: String!
+}
+
+type UserGroupSettingsCountAggregate {
+  _all: Int!
+  avatar: Int!
+  color: Int!
+  description: Int!
+  id: Int!
+  userGroupId: Int!
 }
 
 input UserGroupSettingsCreateNestedOneWithoutUserGroupInput {
@@ -1611,6 +1667,22 @@ input UserGroupSettingsCreateWithoutUserGroupInput {
   avatar: String
   color: String
   description: String
+}
+
+type UserGroupSettingsMaxAggregate {
+  avatar: String
+  color: String
+  description: String
+  id: String
+  userGroupId: String
+}
+
+type UserGroupSettingsMinAggregate {
+  avatar: String
+  color: String
+  description: String
+  id: String
+  userGroupId: String
 }
 
 input UserGroupSettingsNullableRelationFilter {
@@ -1777,7 +1849,7 @@ type UserProfile {
   acronym: String
   avatar: String
   createdAt: DateTime
-  id: ID!
+  id: String!
   user: User!
   userId: String!
 }

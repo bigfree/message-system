@@ -1,6 +1,9 @@
 import { Injectable } from '@nestjs/common';
-import { AssignUsersOnMessage, FindUniqueAssignUsersOnMessageArgs } from '../@generated/assign-users-on-message';
 import { PrismaService } from '../prisma/prisma.service';
+import {
+    AssignUsersOnMessage,
+    FindUniqueAssignUsersOnMessageArgs,
+} from '../@generated/prisma-nestjs-graphql';
 
 @Injectable()
 export class AssignUsersOnMessageService {

@@ -1,14 +1,13 @@
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { UserContactService } from './user-contact.service';
+import { UseGuards } from '@nestjs/common';
+import { JwtAuthGuard } from '../auth/guard/jwt-auth.guard';
 import {
     CreateOneUserContactArgs,
     FindManyUserContactArgs,
-    FindUniqueUserContactArgs,
-    UpdateOneUserContactArgs,
+    FindUniqueUserContactArgs, UpdateOneUserContactArgs,
     UserContact,
-} from '../@generated/user-contact';
-import { UseGuards } from '@nestjs/common';
-import { JwtAuthGuard } from '../auth/guard/jwt-auth.guard';
+} from '../@generated/prisma-nestjs-graphql';
 
 @Resolver(() => UserContact)
 export class UserContactResolver {

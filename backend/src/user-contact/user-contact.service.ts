@@ -1,12 +1,12 @@
 import { Injectable } from '@nestjs/common';
+import { PrismaService } from '../prisma/prisma.service';
 import {
     CreateOneUserContactArgs,
     FindManyUserContactArgs,
     FindUniqueUserContactArgs,
     UpdateOneUserContactArgs,
-    UserContact,
-} from '../@generated/user-contact';
-import { PrismaService } from '../prisma/prisma.service';
+} from '../@generated/prisma-nestjs-graphql';
+import { UserContact } from '@prisma/client';
 
 @Injectable()
 export class UserContactService {
@@ -15,9 +15,9 @@ export class UserContactService {
     ) {
     }
 
-    async create(createOneUserContactArgs: CreateOneUserContactArgs): Promise<UserContact> {
+    async create({data}: CreateOneUserContactArgs): Promise<UserContact> {
         return this.prismaService.userContact.create({
-            data: createOneUserContactArgs.data,
+            data,
             include: {
                 user: true,
             },

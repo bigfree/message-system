@@ -1,11 +1,11 @@
 import { Args, Mutation, Query, Resolver, Subscription } from '@nestjs/graphql';
 import { UserService } from './user.service';
-import { CreateOneUserArgs, FindManyUserArgs, FindUniqueUserArgs, UpdateOneUserArgs, User } from '../@generated/user';
 import { PubSub } from 'graphql-subscriptions';
 import { UseGuards } from '@nestjs/common';
 import { JwtAuthGuard } from '../auth/guard/jwt-auth.guard';
 import { CurrentUser } from '../decorators/current-user.decorator';
 import { PublishStateEnum } from '../enums/publish-state.enum';
+import { CreateOneUserArgs, FindManyUserArgs, FindUniqueUserArgs, UpdateOneUserArgs, User } from '../@generated/prisma-nestjs-graphql';
 
 @Resolver(() => User)
 export class UserResolver {
